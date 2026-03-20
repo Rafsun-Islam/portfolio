@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
 
 export default function CustomCursor() {
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+  if (isTouchDevice) return null
+  
   const dotRef  = useRef(null)
   const ringRef = useRef(null)
   const pos     = useRef({ mx: 0, my: 0, rx: 0, ry: 0 })

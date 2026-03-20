@@ -18,7 +18,7 @@ export default function Navbar() {
           className="w-[7px] h-[7px] rounded-full bg-cyan2 animate-pulse-dot"
           style={{ flexShrink: 0 }}
         />
-        {personal.name.replace(' ', '')}.dev
+        {personal.name.replaceAll(' ', '').toLowerCase()}.live
       </a>
 
       {/* Desktop links */}
