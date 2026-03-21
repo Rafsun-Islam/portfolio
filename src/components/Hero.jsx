@@ -63,9 +63,9 @@ export default function Hero() {
       </div>
 
       {/* LEFT */}
-      <div className="flex flex-col justify-center relative z-[1]">
+      <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative z-[1]">
         {/* Eyebrow */}
-        <div className="flex items-center gap-4 mb-8 hero-anim animate-rise animate-delay-300">
+        <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8 hero-anim animate-rise animate-delay-300">
           <div className="w-10 h-px" style={{ background: 'linear-gradient(90deg,transparent,#63caff)' }} />
           <span className="font-mono-dm text-[0.72rem] text-cyan2 tracking-[0.2em] uppercase">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan2 mr-2 align-middle animate-pulse-dot" />
@@ -85,14 +85,14 @@ export default function Hero() {
         </h1>
 
         {/* Sub */}
-        <div className="mt-8 flex flex-col gap-6 z-[1] hero-anim animate-rise animate-delay-750">
+        <div className="mt-4 flex flex-col gap-6 z-[1] hero-anim animate-rise animate-delay-750">
           <p
             className="font-mono-dm text-[0.82rem] leading-8 text-muted2 max-w-[420px]"
             dangerouslySetInnerHTML={{
               __html: personal.description.replace(/<em>/g, '<em class="not-italic text-cyan">'),
             }}
           />
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-3 sm:gap-4 flex-wrap justify-center lg:justify-start">
             <a
               href="#projects"
               className="font-mono-dm text-[0.78rem] tracking-[0.1em] uppercase px-9 py-3.5 text-bg font-medium transition-transform duration-250 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(99,202,255,0.3)]"
