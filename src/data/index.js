@@ -26,6 +26,7 @@ export const personal = {
 
 // ─── NAV LINKS ───────────────────────────────────────────────────────────────
 export const navLinks = [
+  { label: 'Home',     href: '#hero'     },
   { label: 'Skills',     href: '#skills'     },
   { label: 'Work',       href: '#projects'   },
   { label: 'Experience', href: '#experience' },
