@@ -55,20 +55,17 @@ export default function Contact() {
           {personal.email}
         </a>
 
-        <div className="flex justify-center gap-4 flex-wrap reveal">
+        
+        <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4 flex-wrap reveal">
           {[
-            { label: 'GitHub',    href: personal.social.github   },
-            { label: 'LinkedIn',  href: personal.social.linkedin  },
-            { label: 'Twitter',   href: personal.social.twitter   },
-            { label: 'Resume ↓',  href: personal.social.resume    },
+            { label: 'GitHub',   href: personal.social.github   },
+            { label: 'LinkedIn', href: personal.social.linkedin  },
+            { label: 'Twitter',  href: personal.social.twitter   },
+            { label: 'Resume ↓', href: personal.social.resume    },
           ].map(s => (
-            <a
-              key={s.label}
-              href={s.href}
-              className="font-mono-dm text-[0.68rem] tracking-[0.1em] uppercase px-6 py-2.5 border border-white/5 text-muted2 no-underline transition-all duration-250 hover:border-cyan hover:text-cyan hover:bg-[rgba(99,202,255,0.04)]"
-            >
-              {s.label}
-            </a>
+            <a key={s.label} href={s.href}
+              className="font-mono-dm text-[0.62rem] sm:text-[0.68rem] tracking-[0.08em] uppercase px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 border border-white/5 text-muted2 no-underline transition-all duration-250 hover:border-cyan hover:text-cyan hover:bg-[rgba(99,202,255,0.04)]"
+            >{s.label}</a>
           ))}
         </div>
       </div>
