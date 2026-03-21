@@ -27,11 +27,7 @@ export default function WhatsAppButton() {
           hover:scale-110
           hover:shadow-[0_0_30px_rgba(37,211,102,0.4)]
         "
-        style={{
-          bottom: 'max(1rem, env(safe-area-inset-bottom))',
-          right: 'max(1rem, env(safe-area-inset-right))',
-          background: '#25D366',
-        }}
+        style={{ background: 'linear-gradient(135deg, #25d366, #128c7e)' }}
       >
         {/* WhatsApp SVG icon */}
         <svg
