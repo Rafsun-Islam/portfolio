@@ -2,11 +2,19 @@
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
+    screens: {
+      'xs':  '380px',
+      'sm':  '640px',
+      'md':  '768px',
+      'lg':  '1024px',
+      'xl':  '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         display: ['"Bebas Neue"', 'sans-serif'],
-        mono: ['"DM Mono"', 'monospace'],
-        body: ['"Outfit"', 'sans-serif'],
+        mono:    ['"DM Mono"',    'monospace'],
+        body:    ['"Outfit"',     'sans-serif'],
       },
       colors: {
         bg:     '#03050a',
@@ -32,7 +40,7 @@ export default {
       keyframes: {
         'pulse-dot': {
           '0%,100%': { boxShadow: '0 0 0 0 rgba(0,255,224,0.5)' },
-          '50%':     { boxShadow: '0 0 0 7px rgba(0,255,224,0)' },
+          '50%':     { boxShadow: '0 0 0 7px rgba(0,255,224,0)'  },
         },
         'blink': {
           '0%,100%': { opacity: '1' },
@@ -40,16 +48,16 @@ export default {
         },
         'rise': {
           from: { opacity: '0', transform: 'translateY(40px)' },
-          to:   { opacity: '1', transform: 'translateY(0)' },
+          to:   { opacity: '1', transform: 'translateY(0)'    },
         },
         'scroll-bar': {
-          '0%':   { transform: 'scaleY(0)', transformOrigin: 'top' },
-          '50%':  { transform: 'scaleY(1)', transformOrigin: 'top' },
+          '0%':   { transform: 'scaleY(0)', transformOrigin: 'top'    },
+          '50%':  { transform: 'scaleY(1)', transformOrigin: 'top'    },
           '51%':  { transform: 'scaleY(1)', transformOrigin: 'bottom' },
           '100%': { transform: 'scaleY(0)', transformOrigin: 'bottom' },
         },
         'marquee': {
-          from: { transform: 'translateX(0)' },
+          from: { transform: 'translateX(0)'    },
           to:   { transform: 'translateX(-50%)' },
         },
       },
