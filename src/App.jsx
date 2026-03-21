@@ -1,23 +1,21 @@
-import SpaceBackground from './components/SpaceBackground'
-import CustomCursor    from './components/CustomCursor'
-import Navbar          from './components/Navbar'
-import Hero            from './components/Hero'
-import Marquee         from './components/Marquee'
-import Skills          from './components/Skills'
-import Projects        from './components/Projects'
-import Experience      from './components/Experience'
-import About           from './components/About'
-import Contact         from './components/Contact'
-import Footer          from './components/Footer'
+import SpaceBackground  from './components/SpaceBackground'
+import CustomCursor     from './components/CustomCursor'
+import Navbar           from './components/Navbar'
+import Hero             from './components/Hero'
+import Marquee          from './components/Marquee'
+import Skills           from './components/Skills'
+import Projects         from './components/Projects'
+import Experience       from './components/Experience'
+import About            from './components/About'
+import Contact          from './components/Contact'
+import Footer           from './components/Footer'
+import WhatsAppButton   from './components/WhatsAppButton'
 
 export default function App() {
   return (
-    <>
-      {/* Fixed layers */}
+    <div style={{ position: 'relative', zIndex: 1, background: 'transparent' }}>
       <SpaceBackground />
       <CustomCursor />
-
-      {/* Page */}
       <Navbar />
       <main>
         <Hero />
@@ -29,6 +27,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+      <WhatsAppButton />
+    </div>
   )
 }
