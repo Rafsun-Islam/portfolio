@@ -37,7 +37,7 @@ function AboutCard() {
           $ status
         </div>
         <div className="font-mono-dm text-[0.58rem] sm:text-[0.63rem] text-cyan2">
-          → actively_hiring
+          → open_to_work
         </div>
       </div>
     </div>
