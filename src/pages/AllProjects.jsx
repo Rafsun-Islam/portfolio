@@ -83,7 +83,7 @@ function ProjectCard({ project }) {
       </div>
 
       {/* links */}
-      <div className="flex gap-3 mt-auto">
+      <div className="flex gap-3 mt-auto flex-wrap">
         <a
           href={project.githubUrl}
           target="_blank"

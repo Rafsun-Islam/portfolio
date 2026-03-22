@@ -31,7 +31,7 @@ function LinkIcon() {
 
 function ProjectRow({ project }) {
   return (
-    <div className="proj-row reveal grid grid-cols-[40px_1fr] sm:grid-cols-[56px_1fr] lg:grid-cols-[64px_1fr_auto] items-center gap-4 sm:gap-6 lg:gap-10 py-6 sm:py-7 lg:py-8 border-b border-white/5 cursor-none relative overflow-hidden group">
+    <div className="proj-row reveal grid grid-cols-[36px_1fr_auto] sm:grid-cols-[56px_1fr_auto] lg:grid-cols-[64px_1fr_auto] items-center gap-3 sm:gap-6 lg:gap-10 py-5 sm:py-7 lg:py-8 border-b border-white/5 cursor-none relative overflow-hidden group">
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
         style={{
@@ -88,25 +88,25 @@ function ProjectRow({ project }) {
         </a>
       </div>
 
-      {/* Mobile — just the arrow */}
-      <div className="lg:hidden flex items-center gap-2 relative z-[1]">
+      {/* Mobile links */}
+      <div className="lg:hidden flex items-center gap-2 relative z-[1] flex-shrink-0">
         <a
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted2 hover:text-cyan transition-colors"
+          className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan hover:text-cyan no-underline"
           onClick={(e) => e.stopPropagation()}
         >
-          <GithubIcon />
+          <GithubIcon /> GitHub
         </a>
         <a
           href={project.demoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted2 hover:text-cyan transition-colors text-sm"
+          className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan2 hover:text-cyan2 no-underline"
           onClick={(e) => e.stopPropagation()}
         >
-          ↗
+          <LinkIcon /> Demo
         </a>
       </div>
     </div>
