@@ -1,4 +1,5 @@
-import { useReveal } from "../hooks/useReveal";
+import { useState } from 'react'
+import { useReveal } from '../hooks/useReveal'
 import SectionLabel from "./SectionLabel";
 import NetworkCanvas from "./NetworkCanvas";
 import { projects } from "../data";
@@ -30,87 +31,109 @@ function LinkIcon() {
 }
 
 function ProjectRow({ project }) {
+  const [expanded, setExpanded] = useState(false)
+
   return (
-    <div className="proj-row reveal grid grid-cols-[36px_1fr_auto] sm:grid-cols-[56px_1fr_auto] lg:grid-cols-[64px_1fr_auto] items-center gap-3 sm:gap-6 lg:gap-10 py-5 sm:py-7 lg:py-8 border-b border-white/5 cursor-none relative overflow-hidden group">
+    <div
+      className="reveal border-b border-white/5 relative overflow-hidden cursor-none"
+      onClick={() => setExpanded(!expanded)}
+    >
+      {/* hover tint */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(90deg,rgba(99,202,255,0.04),rgba(167,139,250,0.03),transparent)",
-        }}
+        className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+        style={{ background: 'linear-gradient(90deg,rgba(99,202,255,0.04),rgba(167,139,250,0.03),transparent)' }}
       />
 
-      <div className="font-mono-dm text-[0.62rem] sm:text-[0.68rem] text-muted tracking-[0.12em] relative z-[1]">
-        {project.num}
-      </div>
+      {/* Main row */}
+      <div className="proj-row grid grid-cols-[36px_1fr_auto] sm:grid-cols-[56px_1fr_auto] lg:grid-cols-[64px_1fr_auto] items-center gap-3 sm:gap-6 lg:gap-10 py-5 sm:py-7 lg:py-8 relative z-[1]">
 
-      <div className="relative z-[1] min-w-0">
-        <div
-          className="font-display leading-none tracking-[0.02em] transition-colors duration-250 group-hover:text-cyan truncate"
-          style={{ fontSize: "clamp(1.4rem,3.5vw,3.2rem)" }}
-        >
-          {project.name}
+        <div className="font-mono-dm text-[0.62rem] sm:text-[0.68rem] text-muted tracking-[0.12em]">
+          {project.num}
         </div>
-        <div className="flex gap-1.5 sm:gap-2 mt-1.5 sm:mt-2 flex-wrap">
-          {project.tags.map((t) => (
-            <span
-              key={t}
-              className="font-mono-dm text-[0.55rem] sm:text-[0.6rem] text-muted2 border border-white/5 px-1.5 sm:px-2 py-0.5"
-            >
-              {t}
-            </span>
-          ))}
+
+        <div className="min-w-0">
+          <div
+            className={`font-display leading-none tracking-[0.02em] transition-colors duration-250 truncate ${expanded ? 'text-cyan' : 'hover:text-cyan'}`}
+            style={{ fontSize: 'clamp(1.4rem,3.5vw,3.2rem)' }}
+          >
+            {project.name}
+          </div>
+          <div className="flex gap-1.5 sm:gap-2 mt-1.5 sm:mt-2 flex-wrap">
+            {project.tags.map(t => (
+              <span key={t} className="font-mono-dm text-[0.55rem] sm:text-[0.6rem] text-muted2 border border-white/5 px-1.5 sm:px-2 py-0.5">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 relative z-[1]">
+          {/* Desktop type label */}
+          <span className="hidden lg:block font-mono-dm text-[0.62rem] text-violet tracking-[0.1em] uppercase">{project.type}</span>
+
+          {/* GitHub */}
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan hover:text-cyan no-underline"
+            onClick={e => e.stopPropagation()}
+          >
+            <GithubIcon /> <span className="hidden xs:block">GitHub</span>
+          </a>
+
+          {/* Demo */}
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan2 hover:text-cyan2 no-underline"
+            onClick={e => e.stopPropagation()}
+          >
+            <LinkIcon /> <span className="hidden xs:block">Demo</span>
+          </a>
+
+          {/* Expand toggle arrow */}
+          <div
+            className="w-8 h-8 border border-white/5 rounded-full flex items-center justify-center text-muted2 transition-all duration-300 flex-shrink-0"
+            style={{
+              color: expanded ? '#63caff' : '',
+              borderColor: expanded ? 'rgba(99,202,255,0.3)' : '',
+              transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+            }}
+          >
+            ↓
+          </div>
         </div>
       </div>
 
-      {/* Links — visible on hover on desktop */}
-      <div className="hidden lg:flex items-center gap-3 xl:gap-4 flex-shrink-0 relative z-[1]">
-        <span className="font-mono-dm text-[0.62rem] text-violet tracking-[0.1em] uppercase">
-          {project.type}
-        </span>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 font-mono-dm text-[0.62rem] text-muted2 border border-white/5 px-3 py-1.5 transition-all duration-200 hover:border-cyan hover:text-cyan no-underline"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <GithubIcon /> GitHub
-        </a>
-        <a
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-9 h-9 border border-white/5 rounded-full flex items-center justify-center text-muted2 transition-all duration-300 group-hover:border-cyan group-hover:text-cyan group-hover:rotate-[-45deg] no-underline text-base"
-          onClick={(e) => e.stopPropagation()}
-        >
-          ↗
-        </a>
-      </div>
+      {/* Expandable description panel */}
+      <div
+        className="overflow-hidden transition-all duration-500 relative z-[1]"
+        style={{ maxHeight: expanded ? '300px' : '0px' }}
+      >
+        <div className="pb-6 sm:pb-8 px-0 grid grid-cols-1 lg:grid-cols-[64px_1fr_auto] gap-0 lg:gap-10">
+          {/* spacer for number column on desktop */}
+          <div className="hidden lg:block" />
 
-      {/* Mobile links */}
-      <div className="lg:hidden flex items-center gap-2 relative z-[1] flex-shrink-0">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan hover:text-cyan no-underline"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <GithubIcon /> GitHub
-        </a>
-        <a
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 font-mono-dm text-[0.6rem] text-muted2 border border-white/5 px-2.5 py-1.5 transition-all duration-200 hover:border-cyan2 hover:text-cyan2 no-underline"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <LinkIcon /> Demo
-        </a>
+          <div className="space-y-4">
+            <p className="font-mono-dm text-[0.72rem] sm:text-[0.78rem] text-muted2 leading-7 sm:leading-8">
+              {project.description}
+            </p>
+
+            {/* Stack tags */}
+            {project.stack && (
+              <div className="flex flex-wrap gap-1.5">
+                {project.stack.map(t => (
+                  <span key={t} className="font-mono-dm text-[0.6rem] text-cyan2 border border-[rgba(0,255,224,0.2)] px-2.5 py-0.5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 function FeaturedProject({ project }) {

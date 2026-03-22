@@ -119,7 +119,7 @@ export const projects = [
     name: "Aftabnagor Bus Management System",
     type: "Full Stack",
     tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-    demoUrl: "N/A",
+    demoUrl: "#",
     githubUrl:
       "https://github.com/Rafsun-Islam/AftabNagar_Bus_Management_System",
     featured: true,
@@ -132,7 +132,7 @@ export const projects = [
     name: "Bank Management System",
     type: "Desktop Application",
     tags: ["Java", "NetBeans", "OOP"],
-    demoUrl: "N/A",
+    demoUrl: "#",
     githubUrl: "https://github.com/Rafsun-Islam/Bank_Management_System",
     featured: false,
     description:
@@ -144,7 +144,7 @@ export const projects = [
     name: "Network Design - Apex University",
     type: "Infrastructure",
     tags: ["Cisco Packet Tracer", "Networking", "DHCP", "DNS"],
-    demoUrl: "N/A",
+    demoUrl: "#",
     githubUrl: "https://github.com/Rafsun-Islam/Network-Design",
     featured: false,
     description:

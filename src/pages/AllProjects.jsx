@@ -66,7 +66,7 @@ function ProjectCard({ project }) {
       </h3>
 
       {/* description */}
-      <p className="font-mono-dm text-[0.72rem] text-muted2 leading-7 mb-5 line-clamp-3">
+      <p className="font-mono-dm text-[0.72rem] text-muted2 leading-7 mb-5">
         {project.description}
       </p>
 
