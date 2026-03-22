@@ -69,7 +69,7 @@ export default function Hero() {
           <div className="w-10 h-px" style={{ background: 'linear-gradient(90deg,transparent,#63caff)' }} />
           <span className="font-mono-dm text-[0.72rem] text-cyan2 tracking-[0.2em] uppercase">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan2 mr-2 align-middle animate-pulse-dot" />
-            Available for work · {personal.tagline}
+            Available for work ·
           </span>
         </div>
 

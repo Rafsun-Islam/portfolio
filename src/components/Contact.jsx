@@ -60,7 +60,6 @@ export default function Contact() {
           {[
             { label: 'GitHub',   href: personal.social.github   },
             { label: 'LinkedIn', href: personal.social.linkedin  },
-            { label: 'Twitter',  href: personal.social.twitter   },
             { label: 'Resume ↓', href: personal.social.resume    },
           ].map(s => (
             <a key={s.label} href={s.href}
