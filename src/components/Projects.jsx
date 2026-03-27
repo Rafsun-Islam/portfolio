@@ -215,7 +215,7 @@ export default function Projects() {
           >
             SELECTED
             <br />
-            <span className="text-ghost">PROJECTS.</span>
+            <span className="text-ghost">PROJECTS</span>
           </h2>
           <p className="font-mono-dm text-[0.75rem] sm:text-[0.8rem] text-muted2 leading-7 sm:leading-8 max-w-[260px] reveal">
             Things I've built — from idea to production.

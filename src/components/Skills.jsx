@@ -59,7 +59,7 @@ export default function Skills() {
         <SectionLabel>02 — Expertise</SectionLabel>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-6 mb-10 sm:mb-14 lg:mb-16">
           <h2 className="font-display leading-[0.92] reveal" style={{ fontSize: 'clamp(2.2rem,6vw,6.5rem)' }}>
-            WHAT I<br /><span className="text-ghost">KNOW.</span>
+            WHAT I<br /><span className="text-ghost">KNOW</span>
           </h2>
           <p className="font-mono-dm text-[0.75rem] sm:text-[0.8rem] text-muted2 leading-7 sm:leading-8 max-w-full sm:max-w-[400px] reveal">
             Proficient across the full stack — from pixel-perfect UIs to robust backend infrastructure.

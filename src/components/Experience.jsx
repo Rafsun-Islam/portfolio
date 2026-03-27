@@ -14,7 +14,7 @@ export default function Experience() {
       <div className="relative z-[1]">
         <SectionLabel>04 — Journey</SectionLabel>
         <h2 className="font-display leading-[0.92] mb-10 sm:mb-14 lg:mb-16 reveal" style={{ fontSize: 'clamp(2.2rem,6vw,6.5rem)' }}>
-          EXPERIENCE<br /><span className="text-ghost">&amp; EDUCATION.</span>
+          EXPERIENCE<br /><span className="text-ghost">&amp; EDUCATION</span>
         </h2>
         <div className="flex flex-col lg:grid lg:grid-cols-[220px_1fr] xl:grid-cols-[240px_1fr] gap-8 lg:gap-16 xl:gap-20">
           <div className="flex lg:flex-col gap-0 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 reveal-l">

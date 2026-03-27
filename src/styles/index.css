@@ -53,16 +53,16 @@
   /* Hero text outline */
   .text-outline {
     color: transparent;
-    -webkit-text-stroke: 2px rgba(99, 202, 255, 0.35);
+    -webkit-text-stroke: 2px rgba(99, 203, 255, 0.692);
   }
   .text-ghost {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.692);
     
   }
   .text-ghost-cyan {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 187, 99, 0.04);
+    -webkit-text-stroke: 1px rgba(255, 187, 99, 0.164);
   }
 
   /* Skill bar */
