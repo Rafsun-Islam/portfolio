@@ -175,6 +175,6 @@ export const proofs = [
     title: "Research Foundation",
     value: "Deep Learning Thesis",
     description:
-      "Completed thesis work on automated radiology report generation using deep learning methods.",
+      "Completed thesis work on 'Automated Radiology Report Generation using Deep Learning Methods.'",
   },
 ];
