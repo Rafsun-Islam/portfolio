@@ -1,0 +1,17 @@
+{
+  "name": "Rafsun Islam Taskin Portfolio",
+  "short_name": "Rafsun Portfolio",
+  "description": "Software Engineer portfolio of Rafsun Islam Taskin.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

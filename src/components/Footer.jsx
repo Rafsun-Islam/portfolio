@@ -1,14 +1,38 @@
-import { personal } from '../data'
+import { personal } from "../data";
 
 export default function Footer() {
   return (
-    <footer className="relative z-[2] bg-bg px-5 sm:px-10 lg:px-20 py-6 sm:py-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-3 text-center sm:text-left">
-      <div className="font-mono-dm text-[0.62rem] sm:text-[0.67rem] text-muted">
-        Designed &amp; Developed by <strong className="text-cyan font-normal">{personal.name}</strong> · {new Date().getFullYear()}
-      </div>
-      <div className="font-mono-dm text-[0.6rem] sm:text-[0.65rem] text-muted">
-        React · Tailwind · Vite
+    <footer className="border-t border-border py-8">
+      <div className="container-page flex flex-col gap-4 text-sm font-medium text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {personal.name}. Built with React and
+          Tailwind.
+        </p>
+
+        <div className="flex gap-5">
+          <a
+            href={personal.social.github}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-cyan"
+          >
+            GitHub
+          </a>
+
+          <a
+            href={personal.social.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-cyan"
+          >
+            LinkedIn
+          </a>
+
+          <a href={`mailto:${personal.email}`} className="hover:text-cyan">
+            Email
+          </a>
+        </div>
       </div>
     </footer>
-  )
+  );
 }

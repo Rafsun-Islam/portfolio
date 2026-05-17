@@ -1,23 +1,20 @@
-import { techStack } from '../data'
+import { techStack } from "../data";
 
 export default function Marquee() {
-  const items = [...techStack, ...techStack] // duplicate for seamless loop
+  const items = [...techStack, ...techStack];
 
   return (
-    <div className="overflow-hidden border-t border-b border-white/5 py-2.5 bg-bg1 relative z-[2]">
-      {/* solid bg block to cover stars */}
-      <div className="absolute inset-0 bg-bg1 z-0" />
-      <div className="relative z-[1] flex whitespace-nowrap animate-marquee">
-        {items.map((tech, i) => (
-          <div
-            key={i}
-            className="font-mono-dm text-[0.68rem] text-muted tracking-[0.15em] uppercase px-8 flex items-center gap-6 flex-shrink-0"
+    <div className="overflow-hidden border-y border-border bg-white/[0.035] py-4">
+      <div className="flex w-max animate-marquee gap-8 pr-8">
+        {items.map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            className="font-mono text-sm font-bold uppercase tracking-[0.22em] text-muted"
           >
-            {tech}
-            <span className="text-cyan">✦</span>
-          </div>
+            {item}
+          </span>
         ))}
       </div>
     </div>
-  )
+  );
 }

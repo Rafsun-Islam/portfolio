@@ -1,73 +1,271 @@
-import { useReveal } from '../hooks/useReveal'
-import SectionLabel from './SectionLabel'
-import { personal } from '../data'
+import { useState } from "react";
+import { personal } from "../data";
+import SectionHeading from "./SectionHeading";
+
+const initialForm = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
 
 export default function Contact() {
-  const sectionRef = useReveal()
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setForm((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!accessKey) {
+      setStatus({
+        type: "error",
+        message:
+          "Web3Forms access key missing. Please add VITE_WEB3FORMS_ACCESS_KEY in your .env file.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    const payload = {
+      access_key: accessKey,
+      name: form.name,
+      email: form.email,
+      subject: form.subject,
+      message: form.message,
+      from_name: "Rafsun Portfolio Contact Form",
+      botcheck: "",
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({
+          type: "success",
+          message:
+            "Message sent successfully. Thank you — I will reply as soon as possible.",
+        });
+
+        setForm(initialForm);
+      } else {
+        setStatus({
+          type: "error",
+          message:
+            result.message ||
+            "Something went wrong. Please try again or email me directly.",
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          "Network error. Please try again or email me directly at rafsunislamtaskin024@gmail.com.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <section
-      id="contact"
-      ref={sectionRef}
-      className="relative z-[2] px-6 sm:px-12 lg:px-20 py-28 overflow-hidden text-center"
-    >
-      {/* Fully opaque */}
-      <div className="absolute inset-0 bg-bg1 z-0" />
+    <section id="contact" className="section-pad pb-16">
+      <div className="container-page">
+        <div className="glass-card overflow-hidden rounded-[2rem]">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="relative border-b border-border bg-white/[0.035] p-6 sm:p-8 lg:border-b-0 lg:border-r">
+              <div className="pointer-events-none absolute -left-20 top-20 h-52 w-52 rounded-full bg-cyan/10 blur-3xl" />
 
-      {/* Ghost background text */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-ghost-cyan pointer-events-none select-none whitespace-nowrap z-[1]"
-        style={{ fontSize: 'clamp(6rem,18vw,20rem)' }}
-        aria-hidden
-      >
-        HI
-      </div>
+              <div className="relative z-10">
+                <SectionHeading
+                  eyebrow="Contact"
+                  title="Let’s talk about opportunities."
+                >
+                  Send me a message for software engineering roles, projects,
+                  collaborations, or feedback. This form sends the message
+                  directly to my email inbox.
+                </SectionHeading>
 
-      <div className="relative z-[2] max-w-2xl mx-auto">
-        {/* Label centred */}
-        <div className="flex justify-center mb-6 reveal">
-          <div className="sec-label" style={{ maxWidth: 220 }}>
-            <span className="font-mono-dm text-[0.68rem] text-cyan tracking-[0.2em] uppercase">
-              06 — Contact
-            </span>
+                <div className="mt-9 space-y-4">
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="block rounded-3xl border border-border bg-white/5 p-5 transition-colors hover:border-cyan/50 hover:bg-cyan/10"
+                  >
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted">
+                      Direct Email
+                    </p>
+                    <p className="mt-2 break-all font-semibold text-base">
+                      {personal.email}
+                    </p>
+                  </a>
+                  <a
+                    href="https://wa.me/8801567998451?text=Hi%20Rafsun%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-3xl border border-border bg-white/5 p-5 transition-colors hover:border-cyan/50 hover:bg-cyan/10"
+                  >
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted">
+                      Quick Message
+                    </p>
+                    <p className="mt-2 font-semibold text-base">WhatsApp</p>
+                  </a>
+                  <a
+                    href={personal.social.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-3xl border border-border bg-white/5 p-5 transition-colors hover:border-cyan/50 hover:bg-cyan/10"
+                  >
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted">
+                      Professional Network
+                    </p>
+                    <p className="mt-2 font-semibold text-base">LinkedIn</p>
+                  </a>
+
+                  <a
+                    href={personal.social.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-3xl border border-border bg-white/5 p-5 transition-colors hover:border-cyan/50 hover:bg-cyan/10"
+                  >
+                    <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted">
+                      Code Archive
+                    </p>
+                    <p className="mt-2 font-semibold text-base">GitHub</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 sm:p-8">
+              <div className="mb-8 rounded-3xl border border-border bg-ink/50 p-5">
+                <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-cyan">
+                  Message Form
+                </p>
+                <p className="mt-3 text-soft">
+                  Fill out the form. The message will be delivered directly to
+                  my email inbox.
+                </p>
+              </div>
+
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                tabIndex="-1"
+                autoComplete="off"
+              />
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="block">
+                  <span className="text-sm font-semibold text-soft">
+                    Your name
+                  </span>
+                  <input
+                    required
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    className="input-field"
+                    placeholder="Your name"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-semibold text-soft">
+                    Your email
+                  </span>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    className="input-field"
+                    placeholder="you@example.com"
+                  />
+                </label>
+              </div>
+
+              <label className="mt-5 block">
+                <span className="text-sm font-semibold text-soft">Subject</span>
+                <input
+                  required
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
+                  className="input-field"
+                  placeholder="Software Engineer opportunity"
+                />
+              </label>
+
+              <label className="mt-5 block">
+                <span className="text-sm font-semibold text-soft">Message</span>
+                <textarea
+                  required
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows="7"
+                  className="input-field resize-none"
+                  placeholder="Tell me about the role, project, or collaboration..."
+                />
+              </label>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+
+              {status.message ? (
+                <p
+                  className={`mt-4 rounded-2xl border px-4 py-3 text-sm leading-6 ${
+                    status.type === "success"
+                      ? "border-cyan/30 bg-cyan/10 text-cyan"
+                      : "border-red-400/30 bg-red-400/10 text-red-200"
+                  }`}
+                >
+                  {status.message}
+                </p>
+              ) : null}
+
+              <p className="mt-5 text-sm leading-6 text-muted">
+                You can also email me directly at{" "}
+                <a href={`mailto:${personal.email}`} className="text-cyan">
+                  {personal.email}
+                </a>
+                .
+              </p>
+            </form>
           </div>
-        </div>
-
-        <h2
-          className="font-display leading-[0.88] mb-6 reveal"
-          style={{ fontSize: 'clamp(3.5rem,10vw,10rem)' }}
-        >
-          LET'S<br />
-          <span className="text-cyan" style={{ textShadow: '0 0 60px rgba(99,202,255,0.4)' }}>
-            TALK.
-          </span>
-        </h2>
-
-        <p className="font-mono-dm text-[0.8rem] text-muted2 leading-8 mb-12 max-w-[400px] mx-auto reveal">
-          I'm actively seeking full-time roles and exciting projects. Don't hesitate — my inbox is always open and I respond within 24 hours.
-        </p>
-
-        <a
-          href={`mailto:${personal.email}`}
-          className="inline-block font-mono-dm text-ink uppercase no-underline tracking-[0.04em] px-12 py-5 border border-[rgba(99,202,255,0.15)] transition-all duration-300 mb-12 reveal hover:bg-[rgba(99,202,255,0.07)] hover:text-cyan hover:shadow-[0_0_50px_rgba(99,202,255,0.12)]"
-          style={{ fontSize: 'clamp(0.8rem,2.2vw,1.3rem)' }}
-        >
-          {personal.email}
-        </a>
-
-        
-        <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4 flex-wrap reveal">
-          {[
-            { label: 'GitHub',   href: personal.social.github   },
-            { label: 'LinkedIn', href: personal.social.linkedin  },
-            { label: 'Resume ↓', href: personal.social.resume    },
-          ].map(s => (
-            <a key={s.label} href={s.href}
-              className="font-mono-dm text-[0.62rem] sm:text-[0.68rem] tracking-[0.08em] uppercase px-4 sm:px-5 lg:px-6 py-2 sm:py-2.5 border border-white/5 text-muted2 no-underline transition-all duration-250 hover:border-cyan hover:text-cyan hover:bg-[rgba(99,202,255,0.04)]"
-            >{s.label}</a>
-          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

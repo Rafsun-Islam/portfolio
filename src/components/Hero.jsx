@@ -1,128 +1,174 @@
-import { personal } from '../data'
+import { personal, techStack } from "../data";
 
-function CodeWindow() {
+function TerminalPanel() {
   return (
-    <div className="relative w-full max-w-[500px]">
-      <div
-        className="bg-bg2 border border-[rgba(99,202,255,0.15)] rounded-2xl w-full overflow-hidden"
-        style={{
-          boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,202,255,0.06), 0 0 60px rgba(99,202,255,0.05)',
-        }}
-      >
-        {/* Title bar */}
-        <div className="bg-panel px-5 py-3.5 flex items-center gap-2 border-b border-white/5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-          <span className="font-mono-dm text-[0.68rem] text-muted ml-2 tracking-[0.06em]">developer.js</span>
+    <div className="glass-card flex h-full min-h-[520px] flex-col overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] lg:min-h-full">
+      <div className="flex items-center justify-between border-b border-border bg-white/[0.045] px-4 py-3 sm:px-5 sm:py-4">
+        <div className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-400 sm:h-3 sm:w-3" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber sm:h-3 sm:w-3" />
+          <span className="h-2.5 w-2.5 rounded-full bg-cyan sm:h-3 sm:w-3" />
         </div>
-        {/* Code */}
-        <div className="p-6 font-mono-dm text-[0.78rem] leading-8">
-          <div><span className="text-[#c678dd]">const</span> <span className="text-cyan">developer</span> = {'{'}</div>
-          <div className="pl-6"><span className="text-cyan2">name</span>: <span className="text-[#98c379]">"{personal.name}"</span>,</div>
-          <div className="pl-6"><span className="text-cyan2">role</span>: <span className="text-[#98c379]">"Software Engineer"</span>,</div>
-          <div className="pl-6"><span className="text-cyan2">stack</span>: [<span className="text-[#98c379]">"React"</span>, <span className="text-[#98c379]">"Node"</span>, <span className="text-[#98c379]">"Python"</span>],</div>
-          <div className="pl-6"><span className="text-cyan2">available</span>: <span className="text-[#d19a66]">true</span>,</div>
-          <div className="pl-6"><span className="text-cyan2">passion</span>: <span className="text-[#98c379]">"clean code"</span>,</div>
-          <div className="pl-6"><span className="text-[#61afef]">sayHello</span>: <span className="text-[#c678dd]">function</span>() {'{'}</div>
-          <div className="pl-12"><span className="text-[#c678dd]">return</span> <span className="text-[#98c379]">"Let's build something great!"</span>;</div>
-          <div className="pl-6">{'}'}</div>
-          <div>{'}'}</div>
-          <div className="mt-2" />
-          <div><span className="text-[#4a5568] italic">// Currently seeking opportunities...</span></div>
-          <div>
-            <span className="text-cyan">developer</span>.<span className="text-[#61afef]">sayHello</span>();
-            <span className="inline-block w-2 h-3.5 bg-cyan ml-0.5 align-middle animate-blink" />
-          </div>
-        </div>
+
+        <p className="font-mono text-[0.68rem] text-muted sm:text-xs">
+          rafsun@portfolio:~$
+        </p>
       </div>
 
-      {/* Floating badge */}
-      <div className="absolute -bottom-4 right-6 bg-panel border border-[rgba(99,202,255,0.15)] px-4 py-2.5 flex items-center gap-2 rounded-md shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
-        <span className="w-[7px] h-[7px] rounded-full bg-cyan2 animate-pulse-dot flex-shrink-0" />
-        <span className="font-mono-dm text-[0.63rem] text-muted2 tracking-[0.06em]">
-          <strong className="text-cyan2 font-normal">open_to_work</strong> · respond in 24h
-        </span>
+      <div className="flex flex-1 flex-col justify-center space-y-4 bg-ink/50 p-4 font-mono text-xs leading-6 sm:p-5 sm:text-sm sm:leading-7">
+        <div className="terminal-line terminal-delay-1">
+          <span className="text-cyan">$</span>{" "}
+          <span className="text-soft">whoami</span>
+        </div>
+
+        <div className="terminal-fade terminal-delay-2 rounded-2xl border border-border bg-white/[0.035] p-4">
+          <p className="text-soft">
+            <span className="text-cyan">name:</span> {personal.name}
+          </p>
+          <p className="text-soft">
+            <span className="text-cyan">role:</span> {personal.role}
+          </p>
+          <p className="text-soft">
+            <span className="text-cyan">location:</span> {personal.location}
+          </p>
+        </div>
+
+        <div className="terminal-line terminal-delay-3">
+          <span className="text-cyan">$</span>{" "}
+          <span className="text-soft">cat skills.json</span>
+        </div>
+
+        <div className="terminal-fade terminal-delay-4 rounded-2xl border border-border bg-white/[0.035] p-4">
+          <p className="text-soft">{"{"}</p>
+          <p className="pl-4 text-soft">
+            frontend: <span className="text-amber">["React", "Tailwind"]</span>,
+          </p>
+          <p className="pl-4 text-soft">
+            mobile: <span className="text-amber">["Flutter", "Dart"]</span>,
+          </p>
+          <p className="pl-4 text-soft">
+            backend:{" "}
+            <span className="text-amber">["Node", "Python", "PHP"]</span>,
+          </p>
+          <p className="pl-4 text-soft">
+            database: <span className="text-amber">["MySQL"]</span>
+          </p>
+          <p className="text-soft">{"}"}</p>
+        </div>
+
+        <div className="terminal-line terminal-delay-5">
+          <span className="text-cyan">$</span>{" "}
+          <span className="text-soft">npm run hire-ready</span>
+        </div>
+
+        <div className="terminal-fade terminal-delay-6">
+          <p className="text-muted">Checking academic record...</p>
+          <p className="text-muted">Loading projects...</p>
+          <p className="text-muted">Preparing portfolio...</p>
+
+          <p className="mt-2 text-cyan">
+            Ready for software engineering opportunities
+            <span className="terminal-cursor" />
+          </p>
+        </div>
       </div>
     </div>
-  )
+  );
+}
+
+function StatusCard({ label, value, tone = "text-cyan" }) {
+  return (
+    <div className="panel-card rounded-2xl p-4">
+      <p className="font-mono text-[0.62rem] font-medium uppercase tracking-[0.16em] text-muted">
+        {label}
+      </p>
+      <p className={`mt-2 text-base font-semibold ${tone}`}>{value}</p>
+    </div>
+  );
 }
 
 export default function Hero() {
   return (
     <section
-      id="hero"
-      className="min-h-screen relative z-[1] grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16 px-6 sm:px-12 lg:px-20 pt-24 pb-16 overflow-hidden"
+      id="home"
+      className="relative overflow-hidden pt-24 sm:pt-32 lg:pt-36"
     >
-      {/* Ghost background text */}
-      <div
-        className="absolute bottom-[-8%] left-1/2 -translate-x-1/2 font-display text-ghost-cyan select-none pointer-events-none whitespace-nowrap leading-none z-0"
-        style={{ fontSize: 'clamp(10rem,24vw,28rem)' }}
-        aria-hidden
-      >ENGINEER
-      </div>
+      <div className="pointer-events-none absolute left-1/2 top-24 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-cyan/10 blur-[100px] sm:h-[36rem] sm:w-[36rem]" />
+      <div className="pointer-events-none absolute right-0 top-52 h-[20rem] w-[20rem] rounded-full bg-violet/10 blur-[100px] sm:h-[28rem] sm:w-[28rem]" />
 
-      {/* LEFT */}
-      <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative z-[1]">
-        {/* Eyebrow */}
-        <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8 hero-anim animate-rise animate-delay-300">
-          <div className="w-10 h-px" style={{ background: 'linear-gradient(90deg,transparent,#63caff)' }} />
-          <span className="font-mono-dm text-[0.72rem] text-cyan2 tracking-[0.2em] uppercase">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan2 mr-2 align-middle animate-pulse-dot" />
-            Available for work ·
-          </span>
+      <div className="container-page relative z-10 pb-16 sm:pb-20">
+        <div className="grid items-stretch gap-5 lg:grid-cols-[1.12fr_0.88fr] lg:gap-6">
+          <div className="glass-card flex h-full flex-col rounded-[1.8rem] p-5 sm:rounded-[2rem] sm:p-7 lg:p-8">
+            <div className="mb-6 flex flex-col items-start gap-2 min-[900px]:flex-row min-[900px]:items-center">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-2 text-xs font-medium text-cyan sm:px-4 sm:text-sm">
+                <span className="h-2 w-2 rounded-full bg-cyan" />
+                {personal.status}
+              </span>
+
+              <span className="w-fit rounded-full border border-border bg-white/[0.045] px-3 py-2 text-xs font-medium text-soft sm:px-4 sm:text-sm">
+                {personal.education}
+              </span>
+            </div>
+
+            <p className="kicker">Engineering Dashboard</p>
+
+            <h1 className="mt-4 max-w-3xl font-display text-[2rem] font-semibold leading-tight tracking-[-0.045em] text-base sm:text-4xl lg:text-5xl">
+              Building clean software for real users.
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-base font-medium leading-7 text-soft sm:text-lg">
+              React, Flutter, backend APIs, and practical product engineering.
+            </p>
+
+            <p className="mt-4 max-w-xl text-sm leading-6 text-muted sm:text-base sm:leading-7">
+              I am {personal.name}, a CSE graduate from Dhaka, Bangladesh. I
+              enjoy building polished interfaces, reliable features, and
+              complete user flows.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="#projects" className="btn-primary">
+                View Projects
+              </a>
+
+              <a href="#contact" className="btn-secondary">
+                Contact Me
+              </a>
+
+              <a
+                href={personal.social.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary"
+              >
+                Resume
+              </a>
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <StatusCard label="Strength" value="Clean UI + Logic" />
+              <StatusCard
+                label="Mindset"
+                value="Fast Learner"
+                tone="text-violet"
+              />
+              
+            </div>
+          </div>
+
+          <TerminalPanel />
         </div>
 
-        {/* Title */}
-        <h1
-          className="font-display leading-[0.88] hero-anim animate-rise animate-delay-500 relative z-[1]"
-          style={{ fontSize: 'clamp(3.5rem,8.5vw,10rem)' }}
-        >
-          Rafsun
-          <br />
-          <span className="text-outline">Islam</span>
-          <span className="block pl-10 text-cyan">Taskin</span>
-        </h1>
-
-        {/* Sub */}
-        <div className="mt-4 flex flex-col gap-6 z-[1] hero-anim animate-rise animate-delay-750">
-          <p
-            className="font-mono-dm text-[0.82rem] leading-8 text-muted2 max-w-[420px]"
-            dangerouslySetInnerHTML={{
-              __html: personal.description.replace(/<em>/g, '<em class="not-italic text-cyan">'),
-            }}
-          />
-          <div className="flex gap-3 sm:gap-4 flex-wrap justify-center lg:justify-start">
-            <a
-              href="#projects"
-              className="font-mono-dm text-[0.78rem] tracking-[0.1em] uppercase px-9 py-3.5 text-bg font-medium transition-transform duration-250 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(99,202,255,0.3)]"
-              style={{ background: 'linear-gradient(135deg,#63caff,#00ffe0)' }}
-            >
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="font-mono-dm text-[0.78rem] tracking-[0.1em] uppercase px-9 py-3.5 border border-[rgba(99,202,255,0.3)] text-muted2 transition-all duration-250 hover:border-cyan hover:text-cyan hover:-translate-y-1"
-            >
-              Get In Touch
-            </a>
+        <div className="mt-5 glass-card overflow-hidden rounded-[1.7rem] p-4 sm:mt-6 sm:rounded-[2rem]">
+          <div className="flex flex-wrap gap-2">
+            {techStack.map((tech) => (
+              <span key={tech} className="tag">
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* RIGHT — Code Window */}
-      <div className="flex items-center justify-center hero-anim animate-rise animate-delay-500 relative z-[1] pb-6 lg:pb-0">
-        <CodeWindow />
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-[1] hero-anim animate-rise animate-delay-1300 hidden lg:flex">
-        <span className="font-mono-dm text-[0.62rem] text-muted tracking-[0.18em] uppercase">Scroll</span>
-        <div
-          className="w-px h-12 animate-scroll-bar"
-          style={{ background: 'linear-gradient(#63caff,transparent)' }}
-        />
-      </div>
     </section>
-  )
+  );
 }

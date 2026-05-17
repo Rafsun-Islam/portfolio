@@ -1,20 +1,19 @@
-// ─── PERSONAL INFO ───────────────────────────────────────────────────────────
 export const personal = {
   name: "Rafsun Islam Taskin",
-  initials: "RST",
+  initials: "RT",
   role: "Software Engineer",
   email: "rafsunislamtaskin024@gmail.com",
-  description:
-    "Software Engineer — turning complex problems into <em>elegant</em>, <em>scalable</em> code. Passionate about Web & Flutter development and building products people love.",
   location: "Dhaka, Bangladesh",
-  degree: "B.Sc. CSE · 2025",
-  availability: "Open to Work",
-  focus: "Web / Flutter",
-  languages: "English · Bengali",
-  interests: "Open Source · DSA",
+  education: "B.Sc. in CSE · East West University",
+  cgpa: "3.91 / 4.00",
+  graduation: "2025",
+  status: "Open to Software Engineering roles",
+  headline:
+    "I design and build software that is clean, useful, and production-ready.",
+  intro:
+    "CSE graduate focused on React, Flutter, backend APIs, and practical product engineering. I care about polished user experience, readable code, and solving real problems.",
   about:
-    "I'm a CSE graduate who fell in love with programming. Today I build web and flutter applications and APIs that solve real problems. I care deeply about code quality, user experience, and continuous learning — and I'm always looking for the next great team to join.",
-  aboutQuote: "I build things that matter — and I do it with care.",
+    "I am a Computer Science and Engineering graduate from East West University with strong academic performance and hands-on project experience across web, mobile, database-backed applications, and networking systems. I enjoy converting ideas into structured interfaces, reliable features, and complete user flows.",
   social: {
     github: "https://github.com/Rafsun-Islam",
     linkedin: "https://www.linkedin.com/in/rafsunislamtaskin/",
@@ -23,154 +22,159 @@ export const personal = {
   },
 };
 
-// ─── NAV LINKS ───────────────────────────────────────────────────────────────
 export const navLinks = [
-  { label: "Home", href: "#hero" },
+  { label: "Home", href: "#home" },
   { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
-// ─── TECH MARQUEE ────────────────────────────────────────────────────────────
+
 export const techStack = [
   "React",
+  "JavaScript",
+  "Tailwind CSS",
   "Flutter",
+  "Dart",
   "Node.js",
-  "TypeScript",
+  "Express",
   "Python",
-  "PostgreSQL",
-  "Docker",
-  "AWS",
-  "Next.js",
-  "GraphQL",
+  "FastAPI",
+  "PHP",
+  "MySQL",
+  "Java",
   "Git",
-  "Linux",
+  "Vercel",
+  "Cisco Packet Tracer",
 ];
 
-// ─── SKILLS ──────────────────────────────────────────────────────────────────
 export const skillCategories = [
   {
-    id: "frontend",
-    label: "Frontend",
-    skills: [
-      {  name: "React / Next.js", level: "Beginner", width: 0.88 },
-      {  name: "TypeScript", level: "Beginner", width: 0.76 },
-      {  name: "CSS / Tailwind", level: "Beginner", width: 0.93 },
-      {  name: "Animations", level: "Beginner", width: 0.72 },
-    ],
+    title: "Interface Engineering",
+    code: "UI",
+    description:
+      "Responsive layouts, component thinking, visual hierarchy, and clean user experience.",
+    skills: ["React", "Vite", "JavaScript", "Tailwind CSS", "Responsive UI"],
   },
   {
-    id: "backend",
-    label: "Backend",
-    skills: [
-      {  name: "Node.js / Express", level: "Beginner", width: 0.86 },
-      {  name: "Python / FastAPI", level: "Beginner", width: 0.89 },
-      {  name: "PostgreSQL", level: "Beginner", width: 0.74 },
-      {  name: "Redis / MongoDB", level: "Beginner", width: 0.66 },
-    ],
+    title: "Application Development",
+    code: "APP",
+    description:
+      "End-to-end app flows for web and mobile, from screens to data integration.",
+    skills: ["Flutter", "Dart", "Mobile UI", "API Integration", "State Basics"],
   },
   {
-    id: "devops",
-    label: "DevOps",
-    skills: [
-      {  name: "Docker", level: "Beginner", width: 0.74 },
-      {  name: "AWS (EC2, S3, RDS)", level: "Beginner", width: 0.6 },
-      {  name: "CI/CD Pipelines", level: "Beginner", width: 0.72 },
-      {  name: "Linux / Bash", level: "Beginner", width: 0.78 },
-    ],
+    title: "Backend & Data",
+    code: "API",
+    description:
+      "Database-backed features, admin flows, REST APIs, and server-side logic.",
+    skills: ["Node.js", "Express", "Python", "PHP", "MySQL"],
   },
   {
-    id: "cs",
-    label: "CS Core",
+    title: "Computer Science Core",
+    code: "CS",
+    description:
+      "Strong fundamentals in algorithms, OOP, databases, networking, and systems.",
     skills: [
-      {
-        name: "Data Structures & Algo",
-        level: "Beginner",
-        width: 0.91,
-      },
-      { name: "System Design", level: "Beginner", width: 0.7 },
-      {
-        name: "OOP & Design Patterns",
-        level: "Beginner",
-        width: 0.85,
-      },
-      { name: "Agile / Scrum", level: "Beginner", width: 0.76 },
+      "DSA",
+      "OOP",
+      "Database Design",
+      "Networking",
+      "Software Engineering",
     ],
   },
 ];
 
-// ─── PROJECTS ────────────────────────────────────────────────────────────────
 export const projects = [
   {
     num: "01",
     name: "Ikram Real Estate",
-    type: "Full Stack",
-    tags: ["React", "Vite", "CSS"],
+    type: "Frontend Web App",
+    featured: true,
+    tags: ["React", "Vite", "CSS", "Vercel"],
     demoUrl: "https://ikramrealestate.vercel.app",
     githubUrl: "https://github.com/Rafsun-Islam/IkramRealEstate",
-    featured: true,
     description:
-      "A modern real estate web application built with React and Vite. Features responsive design with live deployment on Vercel showcasing property listings and estate management capabilities.",
-    stack: ["React", "Vite", "CSS", "Vercel"],
+      "A polished real estate website with responsive pages, business-focused sections, clean navigation, and live deployment on Vercel.",
+    impact:
+      "Built a business-ready frontend that can present properties and brand information clearly across devices.",
+    highlights: [
+      "Responsive landing experience",
+      "Property-focused sections",
+      "Live production deployment",
+    ],
   },
   {
     num: "02",
     name: "Aftabnagor Bus Management System",
-    type: "Full Stack",
-    tags: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+    type: "Full Stack Web App",
+    featured: true,
+    tags: ["PHP", "MySQL", "JavaScript", "Admin Panel"],
     demoUrl: "#",
     githubUrl:
       "https://github.com/Rafsun-Islam/AftabNagar_Bus_Management_System",
-    featured: true,
     description:
-      "A comprehensive web-based bus management system with user registration, ticket purchasing, real-time tracking, and an admin panel. Features include feedback system, responsive design, and complete database management for bus operations.",
-    stack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+      "A database-driven transport management system with registration, ticket purchasing, feedback, and admin operations.",
+    impact:
+      "Implemented complete user and admin workflows with structured database interactions and management features.",
+    highlights: [
+      "User and admin flows",
+      "Ticket purchase workflow",
+      "MySQL-backed system",
+    ],
   },
   {
     num: "03",
     name: "Bank Management System",
     type: "Desktop Application",
+    featured: false,
     tags: ["Java", "NetBeans", "OOP"],
     demoUrl: "#",
     githubUrl: "https://github.com/Rafsun-Islam/Bank_Management_System",
-    featured: false,
     description:
-      "A Java-based banking application developed using NetBeans IDE. Includes functionalities like user and admin login, account creation, balance inquiry, deposit, withdrawal, and transfer operations. Demonstrates strong object-oriented programming principles.",
-    stack: ["Java", "NetBeans", "OOP"],
+      "A Java desktop application covering login, account creation, balance inquiry, deposits, withdrawals, and transfers.",
+    impact:
+      "Practiced object-oriented design through realistic banking operations and structured desktop application flows.",
+    highlights: ["OOP structure", "Banking operations", "Desktop UI"],
   },
   {
     num: "04",
     name: "Network Design - Apex University",
-    type: "Infrastructure",
-    tags: ["Cisco Packet Tracer", "Networking", "DHCP", "DNS"],
+    type: "Network Infrastructure",
+    featured: false,
+    tags: ["Cisco Packet Tracer", "DHCP", "DNS", "Routing"],
     demoUrl: "#",
     githubUrl: "https://github.com/Rafsun-Islam/Network-Design",
-    featured: false,
     description:
-      "Complex network infrastructure design for Apex University featuring multiple subnets, dynamic routing, DHCP, DNS, and web server configuration using Cisco Packet Tracer. Demonstrates advanced networking concepts and enterprise-level design patterns.",
-    stack: ["Cisco Packet Tracer", "DHCP", "DNS", "Routing"],
+      "A university network infrastructure design with subnetting, routing, DHCP, DNS, and web server configuration.",
+    impact:
+      "Designed an academic network topology with realistic network services and infrastructure planning.",
+    highlights: [
+      "Subnet planning",
+      "Core network services",
+      "Routing configuration",
+    ],
   },
 ];
 
-// ─── EXPERIENCE ──────────────────────────────────────────────────────────────
-export const experiences = [
+export const proofs = [
   {
-    id: "x3",
-    role: "B.Sc. Computer Science and Engineering",
-    company: "East West University",
-    date: "2021 – 2025 · CGPA: 3.91 / 4.0",
-    tabDate: "2021 – 2025 · University",
-    bullets: [
-      "Received Dean's Scholarship in Fall 2022 and Fall 2024, and Merit Scholarship in Fall 2023. Graduated with Summa Cum Laude.",
-      "Final-year thesis on 'Automating Radiology Report Generation with CDGPT-3.5: A Deep Learning Approach for Enhancing Medical Image Interpretation'.",
-      "Core coursework: Algorithms, OS, Database Design.",
-    ],
-    tags: [
-      "Dean Scholarship",
-      "Merit Scholarship",
-      "Thesis",
-      "Summa Cum Laude",
-    ],
+    title: "Academic Excellence",
+    value: "Summa Cum Laude",
+    description:
+      "Graduated with strong academic performance and a CGPA of 3.91 out of 4.00.",
+  },
+  {
+    title: "Scholarship Recognition",
+    value: "Dean's & Merit Scholarship",
+    description:
+      "Received Dean's Scholarship in Fall 2022 and Fall 2024, and Merit Scholarship in Fall 2023.",
+  },
+  {
+    title: "Research Foundation",
+    value: "Deep Learning Thesis",
+    description:
+      "Completed thesis work on automated radiology report generation using deep learning methods.",
   },
 ];
