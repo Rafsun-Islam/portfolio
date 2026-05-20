@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
@@ -14,6 +14,8 @@ import Loader from "./components/Loader";
 import { personal } from "./data";
 
 const LOADER_OVERLAY_CLASS = "fixed inset-0 z-50 transition-opacity duration-500";
+const INITIAL_LOAD_DELAY_MS = 1700;
+const LOADER_FADE_DELAY_MS = 450;
 
 function HomePage() {
   useEffect(() => {
@@ -43,19 +45,25 @@ export default function App() {
   const [showLoader, setShowLoader] = useState(true);
   const [showPage, setShowPage] = useState(false);
   const [page, setPage] = useState(() => window.location.pathname);
+  const loadTimerRef = useRef(null);
+  const hideLoaderTimerRef = useRef(null);
   const routes = useMemo(() => ["/", "/projects"], []);
 
   useEffect(() => {
-    let hideLoaderTimer = null;
-    const loadTimer = window.setTimeout(() => {
+    loadTimerRef.current = window.setTimeout(() => {
       setShowPage(true);
-      hideLoaderTimer = window.setTimeout(() => setShowLoader(false), 450);
-    }, 1700);
+      hideLoaderTimerRef.current = window.setTimeout(
+        () => setShowLoader(false),
+        LOADER_FADE_DELAY_MS
+      );
+    }, INITIAL_LOAD_DELAY_MS);
 
     return () => {
-      window.clearTimeout(loadTimer);
-      if (hideLoaderTimer !== null) {
-        window.clearTimeout(hideLoaderTimer);
+      if (loadTimerRef.current !== null) {
+        window.clearTimeout(loadTimerRef.current);
+      }
+      if (hideLoaderTimerRef.current !== null) {
+        window.clearTimeout(hideLoaderTimerRef.current);
       }
     };
   }, []);
