@@ -38,13 +38,14 @@ function HomePage() {
 }
 
 export default function App() {
+  const loaderOverlayClass = "fixed inset-0 z-50 transition-opacity duration-500";
   const [showLoader, setShowLoader] = useState(true);
   const [showPage, setShowPage] = useState(false);
   const [page, setPage] = useState(() => window.location.pathname);
   const routes = useMemo(() => ["/", "/projects"], []);
 
   useEffect(() => {
-    let hideLoaderTimer;
+    let hideLoaderTimer = null;
     const loadTimer = window.setTimeout(() => {
       setShowPage(true);
       hideLoaderTimer = window.setTimeout(() => setShowLoader(false), 450);
@@ -88,7 +89,7 @@ export default function App() {
     <div className="relative min-h-screen">
       {showLoader && (
         <div
-          className={`fixed inset-0 z-[120] transition-opacity duration-500 ${
+          className={`${loaderOverlayClass} ${
             showPage ? "pointer-events-none opacity-0" : "opacity-100"
           }`}
         >
