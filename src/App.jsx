@@ -13,6 +13,8 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Loader from "./components/Loader";
 import { personal } from "./data";
 
+const LOADER_OVERLAY_CLASS = "fixed inset-0 z-50 transition-opacity duration-500";
+
 function HomePage() {
   useEffect(() => {
     document.title = `${personal.name} — Software Engineer Portfolio`;
@@ -38,7 +40,6 @@ function HomePage() {
 }
 
 export default function App() {
-  const loaderOverlayClass = "fixed inset-0 z-50 transition-opacity duration-500";
   const [showLoader, setShowLoader] = useState(true);
   const [showPage, setShowPage] = useState(false);
   const [page, setPage] = useState(() => window.location.pathname);
@@ -53,7 +54,9 @@ export default function App() {
 
     return () => {
       window.clearTimeout(loadTimer);
-      window.clearTimeout(hideLoaderTimer);
+      if (hideLoaderTimer !== null) {
+        window.clearTimeout(hideLoaderTimer);
+      }
     };
   }, []);
 
@@ -89,7 +92,7 @@ export default function App() {
     <div className="relative min-h-screen">
       {showLoader && (
         <div
-          className={`${loaderOverlayClass} ${
+          className={`${LOADER_OVERLAY_CLASS} ${
             showPage ? "pointer-events-none opacity-0" : "opacity-100"
           }`}
         >
