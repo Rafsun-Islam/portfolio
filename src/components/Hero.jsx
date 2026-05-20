@@ -2,7 +2,7 @@ import { personal, techStack } from "../data";
 
 function TerminalPanel() {
   return (
-    <div className="glass-card flex h-full min-h-[520px] flex-col overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] lg:min-h-full">
+    <div className="glass-card flex h-full min-h-[420px] sm:min-h-[520px] flex-col overflow-hidden rounded-[1.8rem] sm:rounded-[2rem] lg:min-h-full">
       <div className="flex items-center justify-between border-b border-border bg-white/[0.045] px-4 py-3 sm:px-5 sm:py-4">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400 sm:h-3 sm:w-3" />
@@ -152,7 +152,6 @@ export default function Hero() {
                 value="Fast Learner"
                 tone="text-violet"
               />
-              
             </div>
           </div>
 

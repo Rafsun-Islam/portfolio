@@ -1,16 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Proof from "./components/Proof";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import AllProjects from "./pages/AllProjects";
-import WhatsAppButton from "./components/WhatsAppButton";
+import Loader from "./components/Loader";
 import { personal } from "./data";
+
+const Marquee = lazy(() => import("./components/Marquee"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Proof = lazy(() => import("./components/Proof"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+const AllProjects = lazy(() => import("./pages/AllProjects"));
+const WhatsAppButton = lazy(() => import("./components/WhatsAppButton"));
 
 function HomePage() {
   useEffect(() => {
@@ -23,22 +25,40 @@ function HomePage() {
 
       <main>
         <Hero />
-        <Marquee />
-        <Skills />
-        <Projects />
-        <Proof />
-        <About />
-        <Contact />
+
+        <Suspense fallback={null}>
+          <Marquee />
+          <Skills />
+          <Projects />
+          <Proof />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
-      <WhatsAppButton />
-      <Footer />
+
+      <Suspense fallback={null}>
+        <WhatsAppButton />
+        <Footer />
+      </Suspense>
     </>
   );
 }
 
 export default function App() {
   const [page, setPage] = useState(() => window.location.pathname);
+  const [loading, setLoading] = useState(true);
+  const [fading, setFading] = useState(false);
   const routes = useMemo(() => ["/", "/projects"], []);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFading(true), 1400);
+    const doneTimer = setTimeout(() => setLoading(false), 1700);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(doneTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const handlePopState = () => setPage(window.location.pathname);
@@ -68,7 +88,15 @@ export default function App() {
     return () => document.removeEventListener("click", handleClick);
   }, [routes]);
 
-  if (page === "/projects") return <AllProjects />;
+  if (loading) return <Loader fading={fading} />;
+
+  if (page === "/projects") {
+    return (
+      <Suspense fallback={null}>
+        <AllProjects />
+      </Suspense>
+    );
+  }
 
   return <HomePage />;
 }
