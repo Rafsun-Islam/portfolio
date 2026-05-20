@@ -6,27 +6,21 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // Only for scrolled state (throttled via rAF)
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 16);
+      if (ticking) return;
+      ticking = true;
 
-      const sections = navLinks
-        .map((link) => link.href.replace("#", ""))
-        .map((id) => document.getElementById(id))
-        .filter(Boolean);
-
-      const currentSection = sections.find((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top <= 140 && rect.bottom >= 140;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 16);
+        ticking = false;
       });
-
-      if (currentSection) {
-        setActiveSection(currentSection.id);
-      }
     };
 
     handleScroll();
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
 
@@ -34,6 +28,31 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
+  }, []);
+
+  // Active section detection via IntersectionObserver (no scroll jank)
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => link.href.replace("#", ""))
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0.1 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
