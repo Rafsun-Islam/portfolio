@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./styles/index.css";
 import App from "./App";
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  createRoot(rootElement).render(
+// Only render when DOM is ready
+if (document.getElementById("root")) {
+  createRoot(document.getElementById("root")).render(
     <StrictMode>
       <App />
     </StrictMode>,

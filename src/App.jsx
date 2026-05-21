@@ -4,10 +4,11 @@ import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import { personal } from "./data";
 
-// Optimized timeouts - reduced for better perceived performance
+// Optimized timeouts
 const LOADER_FADE_DELAY = 1000;
 const LOADER_COMPLETE_DELAY = 1300;
 
+// Lazy load only when needed - reduce initial JS
 const Marquee = lazy(() => import("./components/Marquee"));
 const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));

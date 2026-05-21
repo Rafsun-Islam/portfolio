@@ -17,16 +17,12 @@ export default {
         ink: "#07111f",
         navy: "#0b1220",
         panel: "#111c2f",
-
         surface: "rgba(15, 23, 42, 0.72)",
         surface2: "rgba(30, 41, 59, 0.78)",
-
         border: "rgba(203, 213, 225, 0.18)",
-
         base: "#f8fbff",
         soft: "#dbe7f6",
         muted: "#aebfd4",
-
         cyan: "#44dff7",
         blue: "#7ab7ff",
         violet: "#b69bff",
@@ -59,4 +55,17 @@ export default {
     },
   },
   plugins: [],
+  safelist: [
+    "text-cyan",
+    "text-blue",
+    "text-violet",
+    "bg-cyan/10",
+    "border-cyan/30",
+    "hover:border-cyan/50",
+    "hover:bg-cyan/10",
+    "text-amber",
+    "text-emerald-200",
+    "bg-emerald-400/12",
+    "border-emerald-400/30",
+  ],
 };
