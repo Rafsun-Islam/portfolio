@@ -17,7 +17,7 @@ export default function About() {
 
           <div className="glass-card relative overflow-hidden rounded-[2rem] p-4">
             <img
-              src="/photo.png"
+              src="/photo.webp"
               alt={personal.name}
               className="aspect-[4/5] w-full rounded-[1.5rem] object-cover"
             />

@@ -81,7 +81,7 @@ export default function Navbar() {
             aria-label="Go to home section"
           >
             <img
-              src="/favicon.png"
+              src="/favicon.avif"
               alt="Rafsun Islam Taskin logo"
               className="h-10 w-10 shrink-0 rounded-xl"
             />

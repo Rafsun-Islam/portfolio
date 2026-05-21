@@ -1,6 +1,6 @@
 # Rafsun Islam Taskin — Software Engineer Portfolio
 
-![Portfolio Preview](./public/og-image.png)
+![Portfolio Preview](./public/og-image.webp)
 
 A modern, responsive, SEO-optimized personal portfolio website for **Rafsun Islam Taskin**, built with **React**, **Vite**, and **Tailwind CSS**.
 
@@ -117,15 +117,15 @@ This portfolio is built with a strong focus on:
 
 This portfolio is built using the following technologies:
 
-| Technology | Purpose |
-|---|---|
-| React | Frontend UI library |
-| Vite | Fast development and build tool |
-| Tailwind CSS | Styling and responsive layout |
-| JavaScript | Application logic |
-| Web3Forms | Contact form email delivery |
-| Vercel | Deployment and hosting |
-| HTML Meta / JSON-LD | SEO and structured data |
+| Technology          | Purpose                         |
+| ------------------- | ------------------------------- |
+| React               | Frontend UI library             |
+| Vite                | Fast development and build tool |
+| Tailwind CSS        | Styling and responsive layout   |
+| JavaScript          | Application logic               |
+| Web3Forms           | Contact form email delivery     |
+| Vercel              | Deployment and hosting          |
+| HTML Meta / JSON-LD | SEO and structured data         |
 
 ---
 
@@ -133,12 +133,12 @@ This portfolio is built using the following technologies:
 
 The portfolio has been tested with Google Lighthouse and achieved a perfect score in Incognito mode.
 
-| Category | Score |
-|---|---:|
-| Performance | 100 |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
+| Category       | Score |
+| -------------- | ----: |
+| Performance    |   100 |
+| Accessibility  |   100 |
+| Best Practices |   100 |
+| SEO            |   100 |
 
 This confirms that the site is optimized for speed, accessibility, technical quality, and search engine visibility.
 
@@ -151,13 +151,13 @@ The portfolio uses a custom Open Graph preview image for better link sharing on 
 Preview image location:
 
 ```txt
-public/og-image.png
+public/og-image.webp
 ```
 
 Favicon location:
 
 ```txt
-public/favicon.png
+public/favicon.avif
 ```
 
 ---
@@ -221,9 +221,9 @@ The contact form sends messages directly to email using Web3Forms.
 ```txt
 portfolio/
 ├── public/
-│   ├── favicon.png
-│   ├── og-image.png
-│   ├── photo.png
+│   ├── favicon.avif
+│   ├── og-image.webp
+│   ├── photo.webp
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   └── site.webmanifest
@@ -396,8 +396,8 @@ index.html
 public/robots.txt
 public/sitemap.xml
 public/site.webmanifest
-public/og-image.png
-public/favicon.png
+public/og-image.webp
+public/favicon.avif
 ```
 
 ### Open Graph Image
@@ -405,7 +405,7 @@ public/favicon.png
 The Open Graph image is used when the website link is shared on social platforms.
 
 ```txt
-public/og-image.png
+public/og-image.webp
 ```
 
 Recommended size:
@@ -494,7 +494,7 @@ export const personal = {
   name: "Rafsun Islam Taskin",
   role: "Software Engineer",
   email: "rafsunislamtaskin024@gmail.com",
-  location: "Dhaka, Bangladesh"
+  location: "Dhaka, Bangladesh",
 };
 ```
 
@@ -512,8 +512,8 @@ export const projects = [
     demoUrl: "https://example.com",
     githubUrl: "https://github.com/example",
     description: "Project description",
-    impact: "Project impact"
-  }
+    impact: "Project impact",
+  },
 ];
 ```
 
@@ -590,11 +590,11 @@ To keep the portfolio fast:
 
 Recommended image sizes:
 
-| File | Recommended Size |
-|---|---|
-| `og-image.png` | 1200 x 630 |
-| `favicon.png` | 512 x 512 |
-| `photo.png` | Optimized under 500 KB if possible |
+| File            | Recommended Size                   |
+| --------------- | ---------------------------------- |
+| `og-image.webp` | 1200 x 630                         |
+| `favicon.avif`  | 512 x 512                          |
+| `photo.webp`    | Optimized under 500 KB if possible |
 
 ---
 
@@ -657,8 +657,8 @@ After deployment, verify these:
 
 ```txt
 https://rafsunislamtaskin.live
-https://rafsunislamtaskin.live/favicon.png
-https://rafsunislamtaskin.live/og-image.png
+https://rafsunislamtaskin.live/favicon.avif
+https://rafsunislamtaskin.live/og-image.webp
 https://rafsunislamtaskin.live/robots.txt
 https://rafsunislamtaskin.live/sitemap.xml
 https://rafsunislamtaskin.live/site.webmanifest
