@@ -83,7 +83,7 @@ export default function Navbar() {
             <img
               src="/favicon.png"
               alt="Rafsun Islam Taskin logo"
-              className="h-9 w-9 shrink-0 rounded-xl sm:h-10 sm:w-10"
+              className="h-10 w-10 shrink-0 rounded-xl"
             />
 
             <span className="min-w-0">
@@ -163,7 +163,7 @@ export default function Navbar() {
 
       {open ? (
         <div className="fixed inset-0 z-[60] overflow-y-auto bg-ink/96 backdrop-blur-2xl lg:hidden">
-          <div className="container-page flex min-h-screen min-h-dvh flex-col pb-6 pt-20">
+          <div className="container-page flex min-h-dvh flex-col pb-6 pt-20">
             <div className="mt-4 flex flex-col gap-3">
               {navLinks.map((link, index) => {
                 const active = isActive(link.href);
