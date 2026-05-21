@@ -4,9 +4,9 @@ import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import { personal } from "./data";
 
-// Timeouts constants
-const LOADER_FADE_DELAY = 1400;
-const LOADER_COMPLETE_DELAY = 1700;
+// Optimized timeouts - reduced for better perceived performance
+const LOADER_FADE_DELAY = 1000;
+const LOADER_COMPLETE_DELAY = 1300;
 
 const Marquee = lazy(() => import("./components/Marquee"));
 const Skills = lazy(() => import("./components/Skills"));
