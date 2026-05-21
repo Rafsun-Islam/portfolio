@@ -103,7 +103,7 @@ export default function Contact() {
               <div className="relative z-10">
                 <SectionHeading
                   eyebrow="Contact"
-                  title="Let’s talk about opportunities."
+                  title="Let's talk about opportunities."
                 >
                   Send me a message for software engineering roles, projects,
                   collaborations, or feedback. This form sends the message

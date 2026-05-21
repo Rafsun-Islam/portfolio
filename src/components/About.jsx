@@ -19,6 +19,7 @@ export default function About() {
             <img
               src="/photo.webp"
               alt={personal.name}
+              loading="lazy"
               className="aspect-[4/5] w-full rounded-[1.5rem] object-cover"
             />
 

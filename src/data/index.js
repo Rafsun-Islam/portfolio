@@ -13,7 +13,7 @@ export const personal = {
   intro:
     "CSE graduate focused on React, Flutter, backend APIs, and practical product engineering. I care about polished user experience, readable code, and solving real problems.",
   about:
-    "I am a Computer Science and Engineering graduate from East West University with strong academic performance and hands-on project experience across web, mobile, database-backed applications, and networking systems. I enjoy converting ideas into structured interfaces, reliable features, and complete user flows.",
+    "I am a Computer Science and Engineering graduate from East West University with strong academic performance and hands-on project experience across web, mobile, database-backed applications, and networking. I focus on readable code, responsive interfaces, and complete user flows. My goal is to contribute as a reliable software engineer who builds clean, practical solutions.",
   social: {
     github: "https://github.com/Rafsun-Islam",
     linkedin: "https://www.linkedin.com/in/rafsunislamtaskin/",
@@ -29,7 +29,6 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-
 
 export const techStack = [
   "React",
@@ -111,7 +110,7 @@ export const projects = [
     type: "Full Stack Web App",
     featured: true,
     tags: ["PHP", "MySQL", "JavaScript", "Admin Panel"],
-    demoUrl: "#",
+    demoUrl: null,
     githubUrl:
       "https://github.com/Rafsun-Islam/AftabNagar_Bus_Management_System",
     description:
@@ -130,7 +129,7 @@ export const projects = [
     type: "Desktop Application",
     featured: false,
     tags: ["Java", "NetBeans", "OOP"],
-    demoUrl: "#",
+    demoUrl: null,
     githubUrl: "https://github.com/Rafsun-Islam/Bank_Management_System",
     description:
       "A Java desktop application covering login, account creation, balance inquiry, deposits, withdrawals, and transfers.",
@@ -144,7 +143,7 @@ export const projects = [
     type: "Network Infrastructure",
     featured: false,
     tags: ["Cisco Packet Tracer", "DHCP", "DNS", "Routing"],
-    demoUrl: "#",
+    demoUrl: null,
     githubUrl: "https://github.com/Rafsun-Islam/Network-Design",
     description:
       "A university network infrastructure design with subnetting, routing, DHCP, DNS, and web server configuration.",

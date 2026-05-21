@@ -28,12 +28,12 @@ export default function AllProjects() {
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {projects.map((project) => {
                 const demoDisabled =
-                  !project.demoUrl || project.demoUrl === "#";
+                  !project.demoUrl || project.demoUrl === null;
 
                 return (
                   <article
                     key={project.name}
-                    className="glass-card rounded-[2rem] p-6 transition -1 hover:border-cyan/45"
+                    className="glass-card rounded-[2rem] p-6 transition hover:border-cyan/45"
                   >
                     <p className="font-mono text-xs font-bold text-cyan">
                       {project.num}

@@ -4,6 +4,10 @@ import Hero from "./components/Hero";
 import Loader from "./components/Loader";
 import { personal } from "./data";
 
+// Timeouts constants
+const LOADER_FADE_DELAY = 1400;
+const LOADER_COMPLETE_DELAY = 1700;
+
 const Marquee = lazy(() => import("./components/Marquee"));
 const Skills = lazy(() => import("./components/Skills"));
 const Projects = lazy(() => import("./components/Projects"));
@@ -51,8 +55,11 @@ export default function App() {
   const routes = useMemo(() => ["/", "/projects"], []);
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setFading(true), 1400);
-    const doneTimer = setTimeout(() => setLoading(false), 1700);
+    const fadeTimer = setTimeout(() => setFading(true), LOADER_FADE_DELAY);
+    const doneTimer = setTimeout(
+      () => setLoading(false),
+      LOADER_COMPLETE_DELAY,
+    );
 
     return () => {
       clearTimeout(fadeTimer);

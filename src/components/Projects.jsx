@@ -2,10 +2,10 @@ import { projects } from "../data";
 import SectionHeading from "./SectionHeading";
 
 function ProjectCard({ project }) {
-  const demoDisabled = !project.demoUrl || project.demoUrl === "#";
+  const demoDisabled = !project.demoUrl || project.demoUrl === null;
 
   return (
-    <article className="glass-card rounded-[1.75rem] p-5 transition duration-200 -1 hover:border-cyan/35 sm:p-6">
+    <article className="glass-card rounded-[1.75rem] p-5 transition duration-200 hover:border-cyan/35 sm:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="kicker">{project.num}</span>
 

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { navLinks, personal } from "../data";
 
+// Constants
+const SCROLL_THRESHOLD = 16;
+const MOBILE_BREAKPOINT = 1024;
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -8,7 +12,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 16);
+      setScrolled(window.scrollY > SCROLL_THRESHOLD);
 
       const sections = navLinks
         .map((link) => link.href.replace("#", ""))
@@ -46,7 +50,7 @@ export default function Navbar() {
     };
 
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= MOBILE_BREAKPOINT) {
         setOpen(false);
       }
     };
