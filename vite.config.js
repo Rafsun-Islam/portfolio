@@ -6,12 +6,4 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
-  build: {
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
-  },
 });
